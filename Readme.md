@@ -1,2 +1,3 @@
-mvn package
-java -cp target/jackcompiler-1.0-SNAPSHOT.jar br.ufma.ecp.App
+Compilaodres - Engenharia da Computação (UFMA)
+DUPLA: Justino Felipe Lopes Nunes
+       Maiane Serejo Gomes 
