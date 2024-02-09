@@ -14,7 +14,17 @@ public class App
     {
 
     
-        String input = "45 + > / * . ;.";
+        String input = """
+            /* inicio do programa 
+            */
+            if (a > 10) // teste simples";
+            {
+                let a = a + 1; 
+            }
+            /* fim do programa
+            */
+            
+            """;
         Scanner scan = new Scanner (input.getBytes());
         for (Token tk = scan.nextToken(); tk.type != EOF; tk = scan.nextToken()) {
             System.out.println(tk);

@@ -77,6 +77,15 @@ public class Scanner {
         }
     }
 
+    private char peekNext () {
+        int next = current + 1;
+        if ( next  < input.length) {
+            return (char)input[next];
+        } else {
+            return 0;
+        }
+   }
+
     private void skipWhitespace() {
         char ch = peek();
         while (ch == ' ' || ch == '\r' || ch == '\t' || ch == '\n') {
@@ -107,8 +116,17 @@ public class Scanner {
                 return string();
 
             case '/':
+            if (peekNext() == '/') {
+                skipLineComments();
+                return nextToken();
+            } else if (peekNext() == '*') {
+                skipBlockComments();
+                return nextToken();
+            }
+            else {
                 advance();
                 return new Token (TokenType.SLASH,"/");
+            }
 
             case '+':
                 advance();
