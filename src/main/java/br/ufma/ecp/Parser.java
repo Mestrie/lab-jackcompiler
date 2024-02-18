@@ -16,6 +16,20 @@ public class Parser {
          scan = new Scanner(input);
          nextToken();
      }
+
+     static public boolean isOperator(String op) {
+        return op!= "" && "+-*/<>=~&|".contains(op);
+    }
+
+    void parseExpression() {
+        printNonTerminal("expression");
+        parseTerm ();
+        while (isOperator(peekToken.lexeme)) {
+            expectPeek(peekToken.type);
+            parseTerm();
+        }
+        printNonTerminal("/expression");
+  }
  
      private void nextToken() {
          currentToken = peekToken;
